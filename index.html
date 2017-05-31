@@ -17,6 +17,8 @@
 	<!-- width="100%" height="100%" -->
 
 	<script>
+	//. github branch https://github.com/chosenman/jsCircles
+
 	document.getElementsByTagName("svg")[0].setAttribute("style", "width:100%; height:100%;")
 
 	function Circle(cx, cy, html_id)
@@ -111,6 +113,78 @@
 		playground.createNewCircle(e.x,e.y);
 	}
 	
+
+// intersecting of circles
+	// calculating distance between the circles centers
+	//Distance =√(x2−x1)2+(y2−y1)2
+		this.updateIntersect = function(time){
+			var el = document.getElementById(html_id);
+
+			for(circle in circles) {
+			  // this.info.cx 
+			  // var cercleLength = circles.length;
+			  // var nextCircle = 1;
+				 //  if(circles.length>1) {
+					// circles[circle].info.cx - circles[circle+1].info.cx;
+					// nextCircle++;
+				 //  }
+					
+
+			}
+
+			//(cx1-cx2) <= (r1+r2) && (cy1-cy2) <= (r1+r2) 
+			( (cx1-cx2) <= 20 && (cy1-cy2) <= 20 ) 
+
+			//see if the circle is going outside the browser. if it is, reverse the velocity
+			
+			// if( this.info.cx > (document.body.clientWidth-10) || this.info.cx < 10)
+			// {
+			// 	this.info.velocity.x = this.info.velocity.x * -1;
+			// }
+			// if( this.info.cy > (document.body.clientHeight-10) || this.info.cy < 10)
+			// {
+			// 	this.info.velocity.y = this.info.velocity.y * -1;
+			// }
+
+			// this.info.cx = this.info.cx + this.info.velocity.x*time;
+			// this.info.cy = this.info.cy + this.info.velocity.y*time;
+
+			// el.setAttribute("cx", this.info.cx);
+			// el.setAttribute("cy", this.info.cy);
+		}
+
+	// if this distance is equal the SUM of their radiuses - change direction in another direction
+
+
+
+
+
+
+
+// PUSH PRESSURE FUNCTION
+//using immediate function to avoid global variable issues
+	( function(){
+
+		var mousedown_time;
+
+		function getTime(){
+			var date = new Date();
+			return date.getTime();
+		}
+
+		document.onmousedown = function(e){
+			mousedown_time = getTime();
+		}
+		document.onmouseup = function(e){
+			time_pressed = getTime() - mousedown_time;
+			console.log('You held your mouse down for', time_pressed, 'miliseconds.');
+		}
+
+//technically we don't even need the mousedown variable but we're leaving it there for now..
+
+	})();
+
+
 	</script>
 
 </body>
